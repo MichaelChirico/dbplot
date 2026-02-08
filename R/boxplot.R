@@ -33,7 +33,7 @@ db_compute_boxplot <- function(data, x, var, coef = 1.5) {
   }
   var <- enquo(var)
   var <- quo_squash(var)
-  res <- group_by(data, !!!x, add = TRUE)
+  res <- group_by(data, !!!x, .add = TRUE)
   res <- calc_boxplot(res, var)
   res <- mutate(res,
     iqr = (upper - lower) * coef,
